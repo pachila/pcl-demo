@@ -1,0 +1,43 @@
+<ion-view view-title="我的智能设备">
+  <ion-nav-title>
+    我的智能设备
+  </ion-nav-title>
+  <ion-nav-buttons side="right">
+    <button class="button button-icon ion-ios-plus-outline" ng-click="go2detect()">
+    </button>
+  </ion-nav-buttons>
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="d in devices" type="item-text-wrap"
+                href="#/tab/dvc-spanel/{{d.product.product_category}}/{{d.device.device_sn}}" ng-click="go2CtrlIdx(d.product.product_code, d.device.device_sn)">
+        <img ng-src="{{gp(d.picture.path)}}" style="width:40px;">
+
+        <h2>
+          {{d.product.product_name}} - {{d.device.device_name}} - {{d.product.product_code}}
+        </h2>
+
+        <p>{{getDesc(d.product.status)}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+
+        <ion-option-button class="button-assertive" ng-click="remove(d)">
+          DELETE
+        </ion-option-button>
+      </ion-item>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" type="item-text-wrap" ng-click="go2CtrlIdx('99')">
+        <img ng-src="images/pql.png" style="width:40px;">
+        <h2>
+          卧室智能插座
+        </h2>
+        <p>设备状态：正常－定时关10:00</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+
+        <ion-option-button class="button-assertive" ng-click="remove(d)">
+          DELETE
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+
+</ion-view>
+
+

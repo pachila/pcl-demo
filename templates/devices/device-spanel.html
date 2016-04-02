@@ -1,0 +1,41 @@
+<ion-view hide-tabs="true">
+  <ion-nav-title>{{device.name}}</ion-nav-title>
+  <ion-content class="device-detail">
+
+    <div class="dvc_panel_status">
+      <div>
+        <div ng-repeat="d in device.opts">
+          {{d.md_info.md_name}} : {{d.md_info.md_code}}
+        </div>
+      </div>
+    </div>
+    <div class="dvc_panel_opts">
+      <div>
+        <div ng-repeat="d in device.opts">
+          <div class="btn btn-primary btn-opt" ng-click="opt(d)">
+            {{d.md_info.md_name}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="dvc_panel_opts_parm">
+      <div>
+        <div ng-class="{true:'show', false:'hide'}[device.current_node.md_info.md_value_type == '1']">
+          <input type="text" ng-model="device.parmobj" class="form-control" placeholder="请输入数字"/>
+          <div class="btn btn-primary btn-block" ng-click="opt_submit()"> 提  交</div>
+        </div>
+        <div ng-class="{true:'show', false:'hide'}[device.current_node.md_info.md_value_type == '2']">
+          <input type="text" ng-model="device.parmobj"  class="form-control" placeholder="请输入内容"/>
+          <div class="btn btn-primary btn-block" ng-click="opt_submit()"> 提  交</div>
+        </div>
+        <div ng-class="{true:'show', false:'hide'}[device.current_node.md_info.md_value_type == '3']">
+          <select class="form-control" ng-model="device.parmobj">
+            <option ng-repeat="e in device.current_node.enum_details" value="{{e.enum_value}}">{{e.display_value}}</option>
+          </select>
+          <div class="btn btn-primary btn-block" ng-click="opt_submit()"> 提  交</div>
+        </div>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>
