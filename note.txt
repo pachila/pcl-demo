@@ -1,6 +1,7 @@
 wa?
 changed.
 
+<<<<<<< HEAD
 try to change with sicon
 
 remember password
@@ -10,3 +11,6 @@ password 2
 very good
 
 2015/12/1
+=======
+2016/1/1
+>>>>>>> d0a9f0905d9963b3855bc97b243304d0b0d76a20
